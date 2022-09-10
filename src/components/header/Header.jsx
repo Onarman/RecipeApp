@@ -7,35 +7,35 @@ import {
   Select,
 } from './Header.style';
 
-export const Header = ({setQuery,setSelectedMeal,mealType,getData}) => {
+const Header = ({ setQuery, setSelectedMeal, mealType, getData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    getData()
-  }
+    getData();
+  };
   return (
-  <div>
-    <h1>asdasd</h1>
-        <HeaderContainer>
-          <MainHeader>RecipeApp</MainHeader>
-          <FormContainer onSubmit={handleSubmit}>
-            <FoodInput 
-              type="text"
-              placeholder="search"
-              onChange={(e)=> setQuery(e.target.value)}
-              />
-            <Button type="submit">SEARCH</Button>
-            <Select 
-              name="mealType"
-              id="mealType">
-              onChange={(e)=> setSelectedMeal(e.target.value)}
-              {mealType.map((meal,index) => (
-              <option key={index} value={meal.lowerCase()}>{meal}</option>//? süslü parantez kulanmadığımız için return kullanmadık.
-            ))}
-            </Select>
-          </FormContainer>
-        </HeaderContainer>
-        </div>
-  )
-}
+    <HeaderContainer>
+      <MainHeader>Recipe App</MainHeader>
+      <FormContainer onSubmit={handleSubmit}>
+        <FoodInput
+          type="text"
+          placeholder="search"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <Button type="submit">SEARCH</Button>
+        <Select
+          name="mealType"
+          id="mealType"
+          onChange={(e) => setSelectedMeal(e.target.value)}
+        >
+          {mealType.map((meal, index) => (
+            <option key={index} value={meal.toLowerCase()}>
+              {meal}
+            </option>
+          ))}
+        </Select>
+      </FormContainer>
+    </HeaderContainer>
+  );
+};
 
-// export default Header
+export default Header;

@@ -10,8 +10,8 @@ const Cards = ({recipes}) => {
   return <MainContainer wrap="wrap">
     {recipes.map(({recipe},index)=>( //?yolda destructring
     <Card key={index}>
-      <Head>recipe.label</Head>
-      <Image src={recipes.image || defaultImage}/>
+      <Head>{recipe.label}</Head>
+      <Image src={recipe.image || defaultImage}/>
       <Button onClick={()=> navigate("detail",{state: recipe,replace:false})}>View More</Button>
     </Card>
     ))}
